@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Localize;
+use App\Http\Middleware\SiteSettingMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,5 +66,9 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'panelsetting' => \App\Http\Middleware\PanelSettingsMiddleware::class,
+        'sitesetting' => \App\Http\Middleware\SiteSettingMiddleware::class,
+        'categorie' => \App\Http\Middleware\CategoryMiddleware::class,
+        'localize' => Localize::class,
     ];
 }

@@ -34,13 +34,13 @@
     <img class="animation__shake" src="{{asset('backend')}}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
-  @include('backend.inc.header');
+  @include('backend.inc.header')
 
-  @include('backend.inc.sidebar');
+  @include('backend.inc.sidebar')
 
-  @yield('content');
+  @yield('content')
 
-  @include('backend.inc.footer');
+  @include('backend.inc.footer')
 
   <aside class="control-sidebar control-sidebar-dark">
   </aside>
@@ -80,5 +80,12 @@
 <script src="{{asset('backend')}}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('backend')}}/dist/js/pages/dashboard.js"></script>
+<!-- bs-custom-file-input -->
+<script src="{{asset('backend')}}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
 </body>
 </html>

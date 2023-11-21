@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <div class="row breadcrumb_box  align-items-center">
                         <div class="col-lg-6 col-md-6 col-sm-12 text-center text-md-left">
-                            <h2 class="breadcrumb-title">Contact Us</h2>
+                            <h2 class="breadcrumb-title">{{$langData["contact"]}}</h2>
                         </div>
                         <div class="col-lg-6  col-md-6 col-sm-12">
                             <ul class="breadcrumb-list text-center text-md-right">

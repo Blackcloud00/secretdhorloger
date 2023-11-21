@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Frontend\PageController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Frontend\PageHomeController;
 
 /*
@@ -16,9 +18,6 @@ use App\Http\Controllers\Frontend\PageHomeController;
 |
 */
 
-//dd("dsadas");
-
-
 Route::group(['prefix'=>'{locale?}', 'middleware'=> ['sitesetting', 'categorie','localize']], function(){
     Route::get('/', [PageHomeController::class, 'homepage'])->name('homepage');
     Route::get('/about',[PageController::class,'about'])->name('about');
@@ -28,13 +27,16 @@ Route::group(['prefix'=>'{locale?}', 'middleware'=> ['sitesetting', 'categorie',
 
     Route::get('/search',[PageController::class,'search'])->name('search');
 
+    Route::get('/categories/{slug}',[PageController::class,'productscategorie'])->name('productscategorie');
     Route::get('/products',[PageController::class,'products'])->name('products');
-    Route::get('/product/detail',[PageController::class,'productdetail'])->name('productdetail');
+    Route::get('/product/{slug}',[PageController::class,'productdetail'])->name('productdetail');
 
     Route::get('/contact',[PageController::class,'contact'])->name('contact');
     Route::post('/contact/save',[AjaxController::class,'contactsave'])->name('contact.save');
+
+    Auth::routes();
+
+    Route::get('/exit',[AjaxController::class,'logout'])->name('exit');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -10,7 +10,9 @@ class Category extends Model
 {
     use Sluggable;
     protected $fillable =[
-      'name',
+      'name_en',
+      'name_fr',
+      'name_de',
       'image',
       'parent',
       'slug',

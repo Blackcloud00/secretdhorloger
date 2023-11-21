@@ -38,8 +38,8 @@ class SliderSeeder extends Seeder
         ]);
         Slider::create([
             'image' => 'assets/images/slider-image/slider-1.png',
-            'small_text' => 'Türkçe',
-            'lang' => 'tr',
+            'small_text' => 'Deutsch',
+            'lang' => 'de',
             'text_key' => Str::slug("Secret d Horloger"),
             'name' => 'Secret d Horloger',
             'button_content' => 'Shop Now',
@@ -49,8 +49,8 @@ class SliderSeeder extends Seeder
         ]);
         Slider::create([
             'image' => 'assets/images/slider-image/slider-1.png',
-            'small_text' => 'New Products',
-            'lang' => 'tr',
+            'small_text' => 'New Products DE',
+            'lang' => 'de',
             'text_key' => Str::slug("Flexible Chair"),
             'name' => 'Flexible Chair ',
             'button_content' => 'Shop Now',

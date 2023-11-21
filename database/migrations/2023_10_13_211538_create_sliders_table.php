@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
-            $table->string('small_text');
+            $table->string('small_text')->nullable();
             $table->string('lang');
             $table->string('text_key');
             $table->string('name');
-            $table->string('button_content');
-            $table->text('content')->nullable();
+            $table->string('button_content')->nullable();
+            $table->text('content');
             $table->string('link')->nullable();
             $table->enum('status',['0','1'])->default('0');
             $table->timestamps();

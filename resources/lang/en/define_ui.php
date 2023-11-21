@@ -10,11 +10,11 @@ return [
     'langs' => 'langs',
     'language' => 'Language',
     'lang_en' => 'English',
-    'lang_tr' => 'Turkish',
+    'lang_de' => 'German',
     'lang_fr' => 'French',
     'fr' => 'fr',
     'en' => 'en',
-    'tr' => 'tr',
+    'de' => 'de',
     'contact_info' => 'Contact Info',
     'get_in_touch' => 'Get In Touch',
     'phone' => 'Phone',
@@ -36,6 +36,12 @@ return [
     "rsg_005" => "Email is required, please do not leave it blank!",
     "rsg_006" => "Please enter your email address in the email field!",
     "rsg_007" => "Subject is required, please do not leave it blank!",
-    "rsg_008" => "Message is required, please do not leave it blank!"
+    "rsg_008" => "Message is required, please do not leave it blank!",
+
+    "p_rsg_001" => "Title is required, please do not leave it blank!",
+    "p_rsg_002" => "Content is required, please do not leave it blank!",
+    "p_rsg_003" => "Lang is required, please do not leave it blank!",
+    "p_rsg_004" => "Image is required, please do not leave it blank!",
+    "p_rsg_005" => "Status is required, please do not leave it blank!"
 ];
 ?>

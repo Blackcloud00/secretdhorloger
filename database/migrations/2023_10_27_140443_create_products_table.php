@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('img_3')->nullable();
             $table->string('img_4')->nullable();
             $table->string('img_5')->nullable();
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->string('sku');
-            $table->double('price',8,2);
+            $table->double('price',8,2)->nullable();
             $table->enum('status',['0','1'])->default('0');
             $table->timestamps();
         });

@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\products;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class products_content extends Model
 {
+    use HasFactory;
     protected $fillable =[
-        'product_id',
+        'products_id',
         'lang',
         'title',
         'short_des',
@@ -18,4 +20,10 @@ class products_content extends Model
         'seo_desc',
         'seo_keyword',
     ];
+
+
+    public function products()
+    {
+        return $this->belongsTo(products::class);
+    }
 }

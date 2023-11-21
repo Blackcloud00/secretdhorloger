@@ -1,5 +1,6 @@
 <?php
 
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -169,6 +170,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\AllControlServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         ])->toArray(),
 
     /*
@@ -184,6 +186,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'ImageResize' => Intervention\Image\Facades\Image::class
     ])->toArray(),
 
 ];

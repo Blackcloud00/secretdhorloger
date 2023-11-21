@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class products extends Model
 {
     use Sluggable;
+    use HasFactory;
     protected $fillable =[
         'name',
+        'slug',
         'category_id',
         'img_1',
         'img_2',
@@ -22,6 +24,7 @@ class products extends Model
         'price',
         'status',
     ];
+
     public function sluggable(): array
     {
         return [
@@ -30,4 +33,9 @@ class products extends Model
             ]
         ];
     }
+
+    public function products_content(){
+        return $this->hasMany(products_content::class);
+    }
+
 }

@@ -42,7 +42,7 @@
                                   @if ($item->id == $productcontent->products_id)
                                   <option selected  value="{{$item->id}}">{{$item->name}}</option>
                                   @else
-                                  <option value="{{$item->id}}">{{$item->name }}</option>
+                                  <option value="{{$item->id}}">{{$item->name}}</option>
                                   @endif
                                   @endforeach
 

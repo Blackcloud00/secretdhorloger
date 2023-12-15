@@ -36,9 +36,11 @@
                             $imgWay = "";
                             $imgWay = $producArray["img_".$i];
                         @endphp
+                         @if ($imgWay)
                         <div class="swiper-slide zoom-image-hover">
                             <img class="img-responsive m-auto" style="max-height: 350px;" src="{{asset($imgWay)}}" alt="{{$product->name}}">
                         </div>
+                        @endif
                         @endfor
                     </div>
                 </div>
@@ -49,9 +51,11 @@
                             $imgWay = "";
                             $imgWay = $producArray["img_".$i];
                         @endphp
+                        @if ($imgWay)
                         <div class="swiper-slide">
                             <img class="img-responsive m-auto" src="{{asset($imgWay)}}" alt="{{$product->name}}">
                         </div>
+                        @endif
                         @endfor
                     </div>
                     <div class="swiper-buttons">
@@ -69,27 +73,27 @@
                             <li class="old-price not-cut">{{$producArray["price"]}} €</li>
                         </ul>
                     </div>
-                    <p class="quickview-para">{{$langItem["description"]}}</p>
+                    <p class="quickview-para"><?= $langItem["description"] ?></p>
                     <div class="pro-details-quality">
                         <div class="pro-details-cart">
-                            <button class="add-cart btn btn-primary btn-hover-primary " style="background-color: #25D366; border-color:#25D366;" href="#">{{$langData["get_in_touch"]}}</button>
+                            <form action="{{route("wishlist.add")}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{$producArray['id']}}">
+                                <input type="hidden" name="product_price" value="{{$producArray['price']}}">
+                                <input type="hidden" name="product_qty" value="1">
+                                <button title="{{$langData["addtocart"]}}"  class="add-cart btn btn-primary btn-hover-primary " style="background-color: #25D366; border-color:#25D366;" >{{$langData["addtocart"]}}</button>
+                            </form>
                         </div>
                     </div>
                     <div class="pro-details-social-info">
-                        <span>Share</span>
+                        <span>{{$langData["share"]}}</span>
                         <div class="social-info">
                             <ul class="d-flex">
                                 <li>
-                                    <a href="#"><i class="ion-social-facebook"></i></a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?sdk=joey&u={{url()->current()}}&display=popup&ref=plugin&src=share_button&locale=fr_fr" target="_blank"><i class="ion-social-facebook"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="ion-social-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="ion-social-google"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="ion-social-instagram"></i></a>
+                                    <a href="whatsapp://send?text={{$langData["wp_share"]}} {{url()->current()}}"><i class="ion-social-whatsapp"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -103,18 +107,18 @@
     <div class="container">
         <div class="description-review-wrapper">
             <div class="description-review-topbar nav">
-                <a data-bs-toggle="tab" href="#des-details1">Description</a>
-                <a class="active" data-bs-toggle="tab" href="#des-details2">Product Details</a>
+                <a data-bs-toggle="tab" href="#des-details1">{{$langData["description"]}}</a>
+                <a class="active" data-bs-toggle="tab" href="#des-details2">{{$langData["product_details"]}}</a>
             </div>
             <div class="tab-content description-review-bottom">
                 <div id="des-details2" class="tab-pane active">
                     <div class="product-anotherinfo-wrapper">
-                        {{$langItem["technic_des"]}}
+                        <?=$langItem["technic_des"]?>
                     </div>
                 </div>
                 <div id="des-details1" class="tab-pane">
                     <div class="product-description-wrapper">
-                        {{$langItem["description"]}}
+                        <?=$langItem["description"]?>
                     </div>
                 </div>
             </div>

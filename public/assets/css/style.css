@@ -14041,17 +14041,19 @@ body.offcanvas-open {
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
   .hero-slide-content .btn {
-    width: 120px;
     height: 40px;
     line-height: 40px;
     font-size: 14px;
   }
 }
+
+
 .hero-slide-content.hero-slide-content-2 {
   margin-top: -65px;
 }
 .hero-slide-content.hero-slide-content-2 .category {
   color: #FFF;
+
 }
 .hero-slide-content.hero-slide-content-2 .title-1 {
   color: #FFF;

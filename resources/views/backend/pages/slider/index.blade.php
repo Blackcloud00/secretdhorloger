@@ -8,8 +8,8 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header d-flex justify-between">
-                  <h3 class="card-title">Liste des curseurs</h3>
-                  <a href="{{route('panel.slider.create')}}" class="btn btn-success" style="position: relative; margin-left:auto;">Nouveau Slider</a>
+                  <h3 class="card-title">Liste des Carrousel</h3>
+                  <a href="{{route('panel.slider.create')}}" class="btn btn-success" style="position: relative; margin-left:auto;">Nouveau Carrousel</a>
                 </div>
                 <div class="card-body table-responsive p-0">
                   <table class="table table-hover text-nowrap">
@@ -22,7 +22,7 @@
                       <th>Slug</th>
                       <th>Contenu</th>
                       <th>Statut</th>
-                      <th>Editer</th>
+                      <th>Modifier</th>
                       <th>Supprimer</th>
                     </tr>
                     </thead>
@@ -40,7 +40,7 @@
                             <td>{{substr($sld->content, 0, 55)}}...</td>
                             <td><span class="tag tag-{{$sld->status == '1' ? 'success' : 'danger'}}">{{$sld->status == '1' ? 'published' : 'draft'}}</span></td>
                             <td>
-                                <a href="{{route('panel.slider.edit', $sld->id)}}" class="btn btn-success">Editer</a>
+                                <a href="{{route('panel.slider.edit', $sld->id)}}" class="btn btn-success">Modifier</a>
                             </td>
                             <td>
                                 <form action="{{route('panel.slider.destroy', $sld->id)}}" method="POST">

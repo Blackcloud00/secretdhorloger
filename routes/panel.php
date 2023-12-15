@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\OrdersController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CategoriesController;
+use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\ProductsContentController;
 
 /*
@@ -35,7 +37,6 @@ Route::group(['middleware'=>['panelsetting','auth'], 'prefix'=>'panel', 'as' => 
     Route::put('/categorie/{id}/update', [CategoriesController::class, 'update'])->name('categorie.update');
     Route::delete('/categorie/{id}/destroy', [CategoriesController::class, 'destroy'])->name('categorie.destroy');
 
-
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
     Route::get('/product/add', [ProductController::class, 'create'])->name('product.create');
     Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
@@ -49,4 +50,14 @@ Route::group(['middleware'=>['panelsetting','auth'], 'prefix'=>'panel', 'as' => 
     Route::post('/productcontent/store', [ProductsContentController::class, 'store'])->name('productcontent.store');
     Route::put('/productcontent/{id}/update', [ProductsContentController::class, 'update'])->name('productcontent.update');
     Route::delete('/productcontent/{id}/destroy', [ProductsContentController::class, 'destroy'])->name('productcontent.destroy');
+
+    Route::get('/sitesetting', [SiteSettingController::class, 'index'])->name('sitesetting.index');
+    Route::get('/sitesetting/{id}/edit', [SiteSettingController::class, 'edit'])->name('sitesetting.edit');
+    Route::put('/sitesetting/{id}/update', [SiteSettingController::class, 'update'])->name('sitesetting.update');
+
+    Route::get('/order', [OrdersController::class, 'index'])->name('order.index');
+    Route::get('/order/{id}/edit', [OrdersController::class, 'edit'])->name('order.edit');
+    Route::post('/order/store', [OrdersController::class, 'store'])->name('order.store');
+    Route::put('/order/{id}/update', [OrdersController::class, 'update'])->name('order.update');
+    Route::delete('/order/{id}/destroy', [OrdersController::class, 'destroy'])->name('order.destroy');
 });

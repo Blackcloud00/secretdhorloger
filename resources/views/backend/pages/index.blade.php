@@ -19,6 +19,7 @@
             <div class="small-box bg-info pos-rel">
               <div class="inner">
                 <h3>Curseur</h3>
+                <p>{{count($sliders)}} unités</p>
               </div>
               <div class="icon">
                 <i class="ion ion-image"></i>
@@ -31,6 +32,7 @@
             <div class="small-box bg-success pos-rel">
               <div class="inner">
                 <h3>Catégories</h3>
+                <p>{{count($categories)}} unités</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-list"></i>
@@ -43,6 +45,7 @@
             <div class="small-box bg-info pos-rel">
               <div class="inner">
                 <h3>Produits</h3>
+                <p>{{count($products)}} unités</p>
               </div>
               <div class="icon">
                 <i class="ion ion-image"></i>
@@ -54,13 +57,14 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-success pos-rel">
               <div class="inner">
-                <h3>Produits Contenu</h3>
+                <h3>Commandes</h3>
+                <p>{{count($orders)}} unités</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-list"></i>
               </div>
-              <a href="{{route("panel.productcontent.index")}}" class="pos-ab" style="width: 100%;height: 100%;position: absolute;top: 0;"></a>
-              <a href="{{route("panel.productcontent.index")}}" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route("panel.order.index")}}" class="pos-ab" style="width: 100%;height: 100%;position: absolute;top: 0;"></a>
+              <a href="{{route("panel.order.index")}}" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>

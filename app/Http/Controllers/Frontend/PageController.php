@@ -30,15 +30,19 @@ class PageController extends Controller
         $url = $request->url();
         $parts = explode('/', $url);
         $lastSlug = end($parts);
+        $mainCat = Category::where('status','1')->where('parent',null)->withCount("items")->get();
+         $subCat = Category::where('status','1')->whereNotNull('parent')->withCount("items")->get();
         $categories = Category::where('status','1')->where('slug',$lastSlug)->first();
         $products = products::with('products_content')->where('status','1')->where('category_id',$categories->id)->paginate(12);
-        return view('frontend.pages.products', compact('products'));
+        return view('frontend.pages.products', compact('products','mainCat','subCat'));
     }
 
     public function products(){
         $categories = Category::where('status','1')->get();
+        $mainCat = Category::where('status','1')->where('parent',null)->withCount("items")->get();
+        $subCat = Category::where('status','1')->whereNotNull('parent')->withCount("items")->get();
         $products = products::with('products_content')->where('status','1')->paginate(12);
-        return view('frontend.pages.products', compact('products','categories'));
+        return view('frontend.pages.products', compact('products','categories', 'mainCat', 'subCat'));
     }
 
     public function productdetail(Request $request){
@@ -53,6 +57,11 @@ class PageController extends Controller
         $whereami = $request;
         $categories = Category::where('status','1')->get();
         return view('frontend.pages.contact', compact('whereami'));
+    }
+
+
+    public function Result(Request $request){
+        return view('frontend.pages.result');
     }
 
 }

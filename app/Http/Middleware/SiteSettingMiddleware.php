@@ -17,8 +17,12 @@ class SiteSettingMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         $sitesetting = SiteSetting::pluck('data','name')->toArray();
-        view()->share(['sitesetting' => $sitesetting]);
-
+        $countQty = 0;
+        $wishlistHeaderItem = session('wishlist',[]);
+        foreach($wishlistHeaderItem as $item) {
+            $countQty += $item['qty'];
+        }
+        view()->share(['sitesetting' => $sitesetting, 'countQty' => $countQty]);
         return $next($request);
     }
 }

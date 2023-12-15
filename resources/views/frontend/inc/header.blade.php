@@ -71,14 +71,14 @@ $urlCurrent = explode("/",url()->current());
             <div class="row align-self-center">
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="{{route('homepage')}}"><img src="{{asset('assets/images/logo/logo.png')}}" alt="Site Logo" /></a>
+                      <!--  <a href="{{route('homepage')}}"><img src="{{asset('assets/images/logo/logo.png')}}" alt="Site Logo" /></a> -->
+                      <a href="{{route('homepage')}}" style="font-size: 30px; color: black; font-weight: 600; font-family: 'Inter', sans-serif;
+                      font-family: 'Kalnia', serif;">Secret d'horloger</a>
                     </div>
                 </div>
                 <div class="col align-self-center">
                     <div class="header-actions">
                         <div class="header_account_list">
-                            <a href="javascript:void(0)" class="header-action-btn search-btn"><i
-                                    class="icon-magnifier"></i></a>
                             <div class="dropdown_search">
                                 <form class="action-form" action="#">
                                     <input class="form-control" placeholder="Enter your search key" type="text">
@@ -88,6 +88,13 @@ $urlCurrent = explode("/",url()->current());
                         </div>
                         <a href="#offcanvas-mobile-menu" class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">
                             <i class="icon-menu"></i>
+                        </a>
+                        <a href="{{route("wishlist")}}" class="header-action-btn pr-0">
+                            <i class="icon-handbag"></i>
+                            @if ($countQty)
+                                <span class="header-action-num">{{$countQty}}</span>
+                            @endif
+                            <!-- <span class="cart-amount">€30.00</span> -->
                         </a>
                     </div>
                 </div>
@@ -99,14 +106,14 @@ $urlCurrent = explode("/",url()->current());
             <div class="row align-self-center">
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="{{route('homepage')}}"><img src="{{asset("assets/images/logo/logo.png")}}" alt="Site Logo" /></a>
+                       <!-- <a href="{{route('homepage')}}"><img src="{{asset("assets/images/logo/logo.png")}}" alt="Site Logo" /></a>  -->
+                        <a href="{{route('homepage')}}" style="font-size: 30px; color: black; font-weight: 600; font-family: 'Inter', sans-serif;
+                        font-family: 'Kalnia', serif;">Secret d'horloger</a>
                     </div>
                 </div>
                 <div class="col align-self-center">
                     <div class="header-actions">
                         <div class="header_account_list">
-                            <a href="javascript:void(0)" class="header-action-btn search-btn"><i
-                                    class="icon-magnifier"></i></a>
                             <div class="dropdown_search">
                                 <form class="action-form" action="#">
                                     <input class="form-control" placeholder="Enter your search key" type="text">
@@ -116,6 +123,13 @@ $urlCurrent = explode("/",url()->current());
                         </div>
                         <a href="#offcanvas-mobile-menu" class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">
                             <i class="icon-menu"></i>
+                        </a>
+                        <a href="{{route("wishlist")}}" class="header-action-btn pr-0">
+                            <i class="icon-handbag"></i>
+                            @if (session('wishlist'))
+                            <span class="header-action-num">{{count(session('wishlist'))}}</span>
+                            @endif
+                            <!-- <span class="cart-amount">€30.00</span> -->
                         </a>
                     </div>
                 </div>

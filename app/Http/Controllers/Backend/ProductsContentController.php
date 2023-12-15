@@ -56,8 +56,7 @@ class ProductsContentController extends Controller
             'seo_title' =>  $request->p_seo_title,
             'seo_desc' =>  $request->p_seo_desc,
             'seo_keyword' =>  $request->p_seo_keyword,
-         ]);
-
+        ]);
         return back()->withSuccess("Création réussie");
     }
 
@@ -109,6 +108,10 @@ class ProductsContentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $productcontent = products_content::where('id',$id)->firstOrFail();
+
+        $productcontent->delete();
+
+        return back()->withSuccess('Effacé avec succès');
     }
 }

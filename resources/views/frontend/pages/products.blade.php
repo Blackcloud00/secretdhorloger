@@ -20,7 +20,11 @@
     </div>
 </div>
 <div class="shop-category-area pb-100px pt-70px">
+
     <div class="container">
+        @if (session()->get('success'))
+        <div class="alert alert-success">{{$langData[session()->get('success')]}}</div>
+    @endif
         <div class="row">
             <div class="col-lg-9 order-lg-last col-md-12 order-md-first">
                 <div class="shop-bottom-area">
@@ -37,6 +41,13 @@
                                     </a>
                                     <span class="badges">
                                     </span>
+                                    <form action="{{route("wishlist.add")}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{$product['id']}}">
+                                        <input type="hidden" name="product_price" value="{{$product['price']}}">
+                                        <input type="hidden" name="product_qty" value="1">
+                                        <button title="{{$langData["addtocart"]}}" class=" add-to-cart">{{$langData["addtocart"]}}</button>
+                                    </form>
                                </div>
                                 <div class="content">
                                     <h5 class="title"><a href="{{route('productdetail',$product['slug'])}}">{{$langProduct["title"]}}</a></h5>
@@ -63,8 +74,17 @@
                         </div>
                         <div class="sidebar-widget-category">
                             <ul>
-                                @foreach ($categories as $catItem)
-                                <li><a href="{{route('productscategorie',$catItem['slug'])}}" class="">{{$catItem["name_".app()->getLocale()]}}</a></li>
+                                @foreach ($mainCat as $m_catItem)
+                                @if ($m_catItem->items_count > 0)
+                                <li><a href="{{route('productscategorie',$m_catItem['slug'])}}" class=""><b>{{$m_catItem["name_".app()->getLocale()]}} ({{$m_catItem->items_count}})</b></a></li>
+                                    <ul style="padding-left: 15px;">
+                                        @foreach ($subCat as $s_catItem)
+                                        @if ($s_catItem->parent ==  $m_catItem->id && $s_catItem->items_count > 0)
+                                          <li><a href="{{route('productscategorie',$s_catItem['slug'])}}" class="">{{$s_catItem["name_".app()->getLocale()]}} ({{$s_catItem->items_count}})</a></li>
+                                        @endif
+                                        @endforeach
+                                    </ul>
+                                @endif
                                 @endforeach
                             </ul>
                         </div>

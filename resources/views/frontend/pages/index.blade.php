@@ -63,6 +63,7 @@
                                               </a>
                                               <span class="badges">
                                               </span>
+                                              <button title="Add To Cart" class=" add-to-cart">Add To Cart</button>
                                          </div>
                                           <div class="content">
                                               <h5 class="title"><a href="{{route('productdetail',$product['slug'])}}">{{$langProduct["title"]}}</a></h5>

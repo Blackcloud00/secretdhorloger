@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Mail\ContactMail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ContactFormRequest;
 
 class AjaxController extends Controller
@@ -40,7 +42,11 @@ class AjaxController extends Controller
     ];
 
      $lastSaveContact = Contact::create($newdata);
+
+     Mail::to('demo@gmail.com')->send(new ContactMail($newdata));
+
      return back()->with(['message_key'=>'rsg_001']);
+
     }
 
     public function logout() {

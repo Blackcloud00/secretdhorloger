@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\products;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
@@ -21,6 +22,9 @@ class Category extends Model
       'seo_keyword',
       'status'
     ];
+    public function items(){
+        return $this->hasMany(products::class, 'category_id', 'id');
+    }
     public function sluggable(): array
     {
         return [

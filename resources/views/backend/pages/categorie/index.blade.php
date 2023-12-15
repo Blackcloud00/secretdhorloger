@@ -7,8 +7,8 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header d-flex justify-between">
-                  <h3 class="card-title">Liste des curseurs</h3>
-                  <a href="{{route('panel.categorie.create')}}" class="btn btn-success" style="position: relative; margin-left:auto;">Nouveau Slider</a>
+                  <h3 class="card-title">Liste des categorie</h3>
+                  <a href="{{route('panel.categorie.create')}}" class="btn btn-success" style="position: relative; margin-left:auto;">Ajouter Categorie</a>
                 </div>
                 <div class="card-body table-responsive p-0">
                   <table class="table table-hover text-nowrap">
@@ -19,9 +19,9 @@
                       <th>Nom FR</th>
                       <th>Nom DE</th>
                       <th>Slug</th>
-                      <th>Parent ID</th>
+                      <th>Parent Name</th>
                       <th>Statut</th>
-                      <th>Editer</th>
+                      <th>Modifier</th>
                       <th>Supprimer</th>
                     </tr>
                     </thead>
@@ -34,10 +34,19 @@
                             <td>{{$sld->name_fr}}</td>
                             <td>{{$sld->name_de}}</td>
                             <td>{{$sld->slug}}</td>
-                            <td>{{$sld->parent}}</td>
+                             @php
+                                $catName = "";
+                                foreach ($categories as  $catItem) {
+
+                                    if($catItem->id == $sld->parent){
+                                        $catName = $catItem->name_fr;
+                                    }
+                                }
+                             @endphp
+                            <td><b>{{$catName}}</b></td>
                             <td><span class="tag tag-{{$sld->status == '1' ? 'success' : 'danger'}}">{{$sld->status == '1' ? 'published' : 'draft'}}</span></td>
                             <td>
-                                <a href="{{route('panel.categorie.edit', $sld->id)}}" class="btn btn-success">Editer</a>
+                                <a href="{{route('panel.categorie.edit', $sld->id)}}" class="btn btn-success">Modifier</a>
                             </td>
                             <td>
                                 <form action="{{route('panel.categorie.destroy', $sld->id)}}" method="POST">

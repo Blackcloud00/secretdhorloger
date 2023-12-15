@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Category;
+use App\Models\products_content;
 use App\Models\products;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = products::all();
-        return view('backend.pages.product.index', compact('products'));
+        $categories = Category::all();
+        return view('backend.pages.product.index', compact('products','categories'));
     }
 
     /**
@@ -77,8 +79,12 @@ class ProductController extends Controller
             "1" => "Publier",
         ];
         $product = products::where('id',$id)->first();
+        $productcontent_fr = products_content::where('products_id',$product->id)->where('lang', 'fr')->first();
+        $productcontent_en = products_content::where('products_id',$product->id)->where('lang', 'en')->first();
+        $productcontent_de = products_content::where('products_id',$product->id)->where('lang', 'de')->first();
+        //return $productcontent_fr;
         $categories = Category::all();
-        return view('backend.pages.product.edit', compact('product','status','categories'));
+        return view('backend.pages.product.edit', compact('product','status','categories','productcontent_fr','productcontent_en', 'productcontent_de'));
     }
 
     /**

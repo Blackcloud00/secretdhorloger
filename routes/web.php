@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Backend\DashboardController;
@@ -34,6 +36,15 @@ Route::group(['prefix'=>'{locale?}', 'middleware'=> ['sitesetting', 'categorie',
     Route::get('/contact',[PageController::class,'contact'])->name('contact');
     Route::post('/contact/save',[AjaxController::class,'contactsave'])->name('contact.save');
 
+    Route::get('/wishlist',[WishlistController::class,'index'])->name('wishlist');
+    Route::post('/wishlist/add',[WishlistController::class,'add'])->name('wishlist.add');
+    Route::post('/wishlist/remove',[WishlistController::class,'remove'])->name('wishlist.remove');
+
+    Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
+    Route::post('/checkout/add',[CheckoutController::class,'add'])->name('checkout.add');
+
+
+    Route::get('/result',[PageController::class,'result'])->name('result');
     Auth::routes();
 
     Route::get('/exit',[AjaxController::class,'logout'])->name('exit');

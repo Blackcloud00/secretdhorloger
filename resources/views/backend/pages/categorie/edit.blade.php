@@ -51,7 +51,7 @@
                         <label for="c_parent">Parent</label>
                         <select id="c_parent" name="c_parent" class="form-control custom-select">
                             @if (empty($categorie->parent))
-                            <option selected value="-" disabled>Select</option>
+                            <option selected value="">Select</option>
                             @endif
                             @foreach ($categories as $item)
                             @if ($categorie->parent == $item->id)
@@ -60,6 +60,7 @@
                             <option value="{{$item->id}}" >{{$item->name_fr}}</option>
                             @endif
                             @endforeach
+                            <option value="">--</option>
                         </select>
                       </div>
                       @endif

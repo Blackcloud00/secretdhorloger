@@ -2,7 +2,7 @@
     "use strict";
 
     /*----------------------------------------
-            Bootstrap dropdown               
+            Bootstrap dropdown
     -------------------------------------------*/
 
     // Add slideDown animation to Bootstrap dropdown when expanding.
@@ -37,7 +37,7 @@
     });
 
     /*---------------------------
-          Nice Select 
+          Nice Select
        ------------------------------ */
 
     $('select.shop-sort').niceSelect();
@@ -287,7 +287,7 @@
     });
 
     /*---------------------------
-        Quick view Slider 
+        Quick view Slider
     ------------------------------ */
     var galleryThumb = new Swiper('.gallery-thumbs', {
         spaceBetween: 10,
@@ -309,7 +309,7 @@
     });
 
     /*---------------------------
-        Product Details Slider 
+        Product Details Slider
     ------------------------------ */
     var zoomThumb = new Swiper('.zoom-thumbs', {
         spaceBetween: 10,
@@ -330,7 +330,7 @@
     });
 
     /*---------------------------
-        Product Details Slider 
+        Product Details Slider
     ------------------------------ */
     var zoomThumb = new Swiper('.zoom-thumbs-2', {
         spaceBetween: 0,
@@ -362,8 +362,8 @@
         Cart Plus Minus Button
     ------------------------------ */
     var CartPlusMinus = $(".cart-plus-minus");
-    CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
-    CartPlusMinus.append('<div class="inc qtybutton">+</div>');
+    CartPlusMinus.prepend('<button class="dec qtybutton">-</button>');
+    CartPlusMinus.append('<button class="inc qtybutton">+</button>');
     $(".qtybutton").on("click", function() {
         var $button = $(this);
         var oldValue = $button.parent().find("input").val();
@@ -371,7 +371,7 @@
             var newVal = parseFloat(oldValue) + 1;
         } else {
             // Don't allow decrementing below zero
-            if (oldValue > 1) {
+            if (oldValue > 0) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
                 newVal = 1;
@@ -451,7 +451,7 @@
     });
 
     /*-----------------------------
-        Blog Gallery Slider 
+        Blog Gallery Slider
     -------------------------------- */
     var swiper = new Swiper(".blog-post-media", {
         slidesPerView: 1,

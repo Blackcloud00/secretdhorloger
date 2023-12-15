@@ -16,21 +16,23 @@
                     <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Product ID</th>
+                      <th>Produit ID</th>
                       <th>Lang</th>
-                      <th>Title</th>
+                      <th>Nom</th>
+                      <th>Modifier</th>
+                      <th>Supprimer</th>
                     </tr>
                     </thead>
                     <tbody>
                         @if (!empty($productcontent) && $productcontent->count() > 0)
                          @foreach ($productcontent as $sld)
-                          <tr>
+                         <tr>
                             <td>{{$sld->id}}</td>
                             <td>{{$sld->products_id}}</td>
                             <td>{{$sld->lang}}</td>
                             <td>{{$sld->title}}</td>
                             <td>
-                                <a href="{{route('panel.productcontent.edit', $sld->id)}}" class="btn btn-success">Editer</a>
+                                <a href="{{route('panel.productcontent.edit', $sld->id)}}" class="btn btn-success">Modifier</a>
                             </td>
                             <td>
                                 <form action="{{route('panel.productcontent.destroy', $sld->id)}}" method="POST">

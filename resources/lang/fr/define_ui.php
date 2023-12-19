@@ -17,7 +17,7 @@ return [
     'de' => 'de',
     'contact_info' => 'Coordonnées',
     'get_in_touch' => 'Entrer en contact',
-    'phone' => 'Téléphone',
+    'phone' => 'Phone',
     'email' => 'Email',
     'adress' => 'Adresse',
     'follow_us' => 'Suivez-nous',
@@ -91,5 +91,6 @@ return [
     "result_003" => "Bonne journée",
 
     "wp_share" => "Bonjour, vous devriez consulter ce produit :",
+    "fait_main" => "Fait Main",
 ];
 ?>

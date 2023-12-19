@@ -91,5 +91,6 @@ return [
     "result_003" => "Have a good day",
 
     "wp_share" => "Hello, you should check out this product:",
+    "fait_main" => "Handmade",
 ];
 ?>

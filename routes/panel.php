@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\PagesController;
 use App\Http\Controllers\Backend\OrdersController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ProductController;
@@ -50,6 +51,13 @@ Route::group(['middleware'=>['panelsetting','auth'], 'prefix'=>'panel', 'as' => 
     Route::post('/productcontent/store', [ProductsContentController::class, 'store'])->name('productcontent.store');
     Route::put('/productcontent/{id}/update', [ProductsContentController::class, 'update'])->name('productcontent.update');
     Route::delete('/productcontent/{id}/destroy', [ProductsContentController::class, 'destroy'])->name('productcontent.destroy');
+
+    Route::get('/pages', [PagesController::class, 'index'])->name('pages.index');
+    Route::get('/pages/add', [PagesController::class, 'create'])->name('pages.create');
+    Route::get('/pages/{id}/edit', [PagesController::class, 'edit'])->name('pages.edit');
+    Route::post('/pages/store', [PagesController::class, 'store'])->name('pages.store');
+    Route::put('/pages/{id}/update', [PagesController::class, 'update'])->name('pages.update');
+    Route::delete('/pages/{id}/destroy', [PagesController::class, 'destroy'])->name('pages.destroy');
 
     Route::get('/sitesetting', [SiteSettingController::class, 'index'])->name('sitesetting.index');
     Route::get('/sitesetting/{id}/edit', [SiteSettingController::class, 'edit'])->name('sitesetting.edit');

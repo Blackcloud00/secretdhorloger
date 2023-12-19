@@ -35,6 +35,21 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6 col-sm-6 col-lg-3 mb-md-30px mb-lm-30px" data-aos="fade-up" data-aos-delay="400">
+                            <div class="single-wedge">
+                                <div class="footer-links">
+                                    <div class="footer-row">
+                                      <ul class="align-items-center">
+                                            @foreach ($pages_sabit as $item)
+                                                @if ($item->parent == 5)
+                                                <li class="li"><a class="single-link" href="{{route("information", $item->slug)}}"><?=$item["name".strtoupper(config('app.locale'))] ?? $item["nameFR"]?></a></li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

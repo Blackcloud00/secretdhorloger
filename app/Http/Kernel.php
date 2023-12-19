@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\Localize;
+use App\Http\Middleware\PagesMiddleware;
 use App\Http\Middleware\SiteSettingMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -69,6 +70,7 @@ class Kernel extends HttpKernel
         'panelsetting' => \App\Http\Middleware\PanelSettingsMiddleware::class,
         'sitesetting' => \App\Http\Middleware\SiteSettingMiddleware::class,
         'categorie' => \App\Http\Middleware\CategoryMiddleware::class,
+        'pages_sabit' => PagesMiddleware::class,
         'localize' => Localize::class,
     ];
 }

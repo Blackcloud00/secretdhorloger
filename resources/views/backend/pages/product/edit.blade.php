@@ -56,11 +56,11 @@
                                         <select id="p_categorie" name="p_categorie" class="form-control custom-select">
                                           <option selected value="-" disabled>Select</option>
                                             @foreach ($categories as $item)
-                                            @if ($item->id ==  $product->category_id )
-                                            <option value="{{$item->id}}" selected>{{$item->name_fr}}</option>
-                                            @else
-                                            <option value="{{$item->id}}">{{$item->name_fr}}</option>
-                                            @endif
+                                                @if ($item->id ==  $product->category_id )
+                                                   <option value="{{$item->id}}" selected>{{$item->name_fr}}</option>
+                                                @else
+                                                   <option value="{{$item->id}}">{{$item->name_fr}}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                       </div>

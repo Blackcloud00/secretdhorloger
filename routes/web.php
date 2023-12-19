@@ -20,7 +20,7 @@ use App\Http\Controllers\Frontend\PageHomeController;
 |
 */
 
-Route::group(['prefix'=>'{locale?}', 'middleware'=> ['sitesetting', 'categorie','localize']], function(){
+Route::group(['prefix'=>'{locale?}', 'middleware'=> ['sitesetting', 'categorie','localize','pages_sabit']], function(){
     Route::get('/', [PageHomeController::class, 'homepage'])->name('homepage');
     Route::get('/about',[PageController::class,'about'])->name('about');
 
@@ -28,6 +28,8 @@ Route::group(['prefix'=>'{locale?}', 'middleware'=> ['sitesetting', 'categorie',
     Route::get('/campaign/detail',[PageController::class,'campaigndetail'])->name('campaigndetail');
 
     Route::get('/search',[PageController::class,'search'])->name('search');
+
+    Route::get('/information/{slug}',[PageController::class,'information'])->name('information');
 
     Route::get('/categories/{slug}',[PageController::class,'productscategorie'])->name('productscategorie');
     Route::get('/products',[PageController::class,'products'])->name('products');

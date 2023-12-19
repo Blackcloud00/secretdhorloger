@@ -134,6 +134,7 @@ class ProductController extends Controller
             'price' =>  $request->p_price,
             'status' =>   $request->p_status,
         ]);
+
         return back()->withSuccess("Mise à jour réussie");
     }
 

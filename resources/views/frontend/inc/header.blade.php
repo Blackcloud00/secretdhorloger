@@ -148,7 +148,15 @@ $urlCurrent = explode("/",url()->current());
                             <li><a href="{{route("products")}}">{{$langData["products"]}}</a></li>
                             <li class="dropdown "><a href="{{route('products')}}"> {{$langData["categories"]}} <i class="ion-ios-arrow-down"></i></a>
                                 <ul class="sub-menu">
+                                    @php
+                                        $faitPage = "";
+                                    @endphp
                                     @foreach ($categories as $cat)
+                                    @php
+                                        if ($cat->id == 12) {
+                                            $faitPage = $cat;
+                                        }
+                                    @endphp
                                     @php  $subMenu = ""; $arrowIcon = false; @endphp
                                     @if (is_null($cat->parent))
                                     <li class="dropdown position-static"><a href="{{route('productscategorie',$cat['slug'])}}">{{$cat["name_".app()->getLocale()]}}
@@ -173,6 +181,9 @@ $urlCurrent = explode("/",url()->current());
                                     @endforeach
                                 </ul>
                             </li>
+                            @if ($faitPage)
+                                <li><a href="{{route('productscategorie',$faitPage->slug)}}">{{$langData["fait_main"]}}</a></li>
+                            @endif
                             <li><a href="{{route('contact')}}" >{{$langData["contact"]}}</a></li>
                         </ul>
                     </div>
@@ -214,7 +225,9 @@ $urlCurrent = explode("/",url()->current());
                             @endforeach
                         </ul>
                     </li>
-
+                    @if ($faitPage)
+                      <li><a href="{{route('productscategorie',$faitPage->slug)}}">{{$langData["fait_main"]}}</a></li>
+                    @endif
                     <li><a href="{{route('contact')}}" >{{$langData["contact"]}}</a></li>
                 </ul>
             </div>

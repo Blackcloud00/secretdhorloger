@@ -3,18 +3,22 @@
 @foreach ($product->products_content as $langItem)
 @if ($langItem["lang"] == config('app.locale'))
 <div class="breadcrumb-area">
-    <div class="container">
+    @if ($page[0]->banner_img)
+        <img src="{{asset($page[0]->banner_img ?? "")}}" style="position:absolute; right:0; top:0; width:100%; height:100%; z-index:0;
+        opacity: 0.6;" alt="">
+    @endif
+    <div class="container" style="position: relative; z-index: 6;     background-color: #f0f8ffb5;
+    border-radius: 10px;">
         <div class="row">
             <div class="col-12">
                 <div class="row breadcrumb_box  align-items-center">
                     <div class="col-lg-6 col-md-6 col-sm-12 text-center text-md-left">
-                        <h2 class="breadcrumb-title">{{$langItem["title"]}}</h2>
+                        <h2 class="breadcrumb-title">{{$langData["products"]}}</h2>
                     </div>
                     <div class="col-lg-6  col-md-6 col-sm-12">
                         <ul class="breadcrumb-list text-center text-md-right">
                             <li class="breadcrumb-item"><a href="{{route('homepage')}}">{{$langData["homepage"]}}</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('products')}}">{{$langData["products"]}}</a></li>
-                            <li class="breadcrumb-item active">{{$langItem["title"]}}</li>
+                            <li class="breadcrumb-item active">{{$langData["products"]}}</li>
                         </ul>
                     </div>
                 </div>

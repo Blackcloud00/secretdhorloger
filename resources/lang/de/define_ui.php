@@ -17,7 +17,7 @@ return [
     'de' => 'de',
     'contact_info' => 'Kontaktinformationen',
     'get_in_touch' => 'Kontaktieren Sie uns',
-    'phone' => 'Telefon',
+    'phone' => 'Phone',
     'email' => 'E-Mail',
     'adress' => 'Adresse',
     'follow_us' => 'Folgen Sie uns',
@@ -91,5 +91,6 @@ return [
     "result_003" => "Ich wünsche Ihnen einen schönen Tag",
 
     "wp_share" => "Hallo, du solltest dir dieses Produkt ansehen:",
+    "fait_main" => "Handgefertigt",
 ];
 ?>

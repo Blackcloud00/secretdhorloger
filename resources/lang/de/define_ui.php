@@ -92,5 +92,8 @@ return [
 
     "wp_share" => "Hallo, du solltest dir dieses Produkt ansehen:",
     "fait_main" => "Handgefertigt",
+    "discount" => "Tolle Rabatte hier",
+    "discount_area" => "Es ist der ermäßigte Preis!",
+
 ];
 ?>

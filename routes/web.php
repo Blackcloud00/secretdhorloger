@@ -20,7 +20,7 @@ use App\Http\Controllers\Frontend\PageHomeController;
 |
 */
 
-Route::group(['prefix'=>'{locale?}', 'middleware'=> ['sitesetting', 'categorie','localize','pages_sabit']], function(){
+Route::group(['prefix'=>'{locale?}', 'middleware'=> ['sitesetting', 'categorie','localize','pages_sabit','campaigns']], function(){
     Route::get('/', [PageHomeController::class, 'homepage'])->name('homepage');
     Route::get('/about',[PageController::class,'about'])->name('about');
 

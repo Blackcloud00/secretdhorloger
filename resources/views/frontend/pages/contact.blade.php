@@ -1,10 +1,6 @@
 @extends('frontend.layout.layout')
 @section('content')
-    <div class="breadcrumb-area">
-        @if ($page[0]->banner_img)
-            <img src="{{asset($page[0]->banner_img ?? "")}}" style="position:absolute; right:0; top:0; width:100%; height:100%; z-index:0;
-            opacity: 0.6;" alt="">
-        @endif
+<div class="breadcrumb-area" style="background-image: url({{asset($page[0]->banner_img ?? "")}}); background-size:cover;">
         <div class="container" style="position: relative; z-index: 6; background-color: #f0f8ffb5;
         border-radius: 10px;">
             <div class="row">

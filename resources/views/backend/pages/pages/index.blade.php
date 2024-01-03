@@ -39,11 +39,13 @@
                                 <a href="{{route('panel.pages.edit', $sld->id)}}" class="btn btn-success">Modifier</a>
                             </td>
                             <td>
+                                @if (!in_array($sld->id,$noRemoved))
                                 <form action="{{route('panel.pages.destroy', $sld->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Supprimer</button>
                                 </form>
+                                @endif
                             </td>
                           </tr>
                          @endforeach

@@ -145,8 +145,7 @@ $urlCurrent = explode("/",url()->current());
                             <li><a href="{{route("homepage")}}">{{$langData["homepage"]}}</i></a>
                             </li>
                             <li><a href="{{route("about")}}">{{$langData["about_us"]}}</a></li>
-                            <li><a href="{{route("products")}}">{{$langData["products"]}}</a></li>
-                            <li class="dropdown "><a href="{{route('products')}}"> {{$langData["categories"]}} <i class="ion-ios-arrow-down"></i></a>
+                            <li class="dropdown "><a href="{{route('products')}}"> {{$langData["products"]}} <i class="ion-ios-arrow-down"></i></a>
                                 <ul class="sub-menu">
                                     @php
                                         $faitPage = "";
@@ -182,7 +181,7 @@ $urlCurrent = explode("/",url()->current());
                                 </ul>
                             </li>
                             @if ($faitPage)
-                                <li><a href="{{route('productscategorie',$faitPage->slug)}}">{{$langData["fait_main"]}}</a></li>
+                             <li><a href="{{route('productscategorie',$faitPage->slug)}}">{{$faitPage["name_".app()->getLocale()] ?? $faitPage["name_fr"]}}</a></li>
                             @endif
                             <li><a href="{{route('contact')}}" >{{$langData["contact"]}}</a></li>
                         </ul>
@@ -199,7 +198,7 @@ $urlCurrent = explode("/",url()->current());
                 <ul>
                     <li><a href="{{route("homepage")}}"><span class="menu-text">{{$langData["homepage"]}}</span></a></li>
                     <li><a href="{{route("about")}}">{{$langData["about_us"]}}</a></li>
-                    <li><a href="{{route("products")}}"><span class="menu-text">{{$langData["categories"]}}</span></a>
+                    <li><a href="{{route("products")}}"><span class="menu-text">{{$langData["products"]}}</span></a>
                         <ul class="sub-menu">
                             @foreach ($categories as $cat)
                             @php  $subMenu = ""; $arrowIcon = false; @endphp
@@ -226,7 +225,7 @@ $urlCurrent = explode("/",url()->current());
                         </ul>
                     </li>
                     @if ($faitPage)
-                      <li><a href="{{route('productscategorie',$faitPage->slug)}}">{{$langData["fait_main"]}}</a></li>
+                    <li><a href="{{route('productscategorie',$faitPage->slug)}}">{{$faitPage["name_".app()->getLocale()] ?? $faitPage["name_fr"]}}</a></li>
                     @endif
                     <li><a href="{{route('contact')}}" >{{$langData["contact"]}}</a></li>
                 </ul>

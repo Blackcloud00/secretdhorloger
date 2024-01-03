@@ -13,11 +13,17 @@ class CheckoutController extends Controller
     public function index() {
         $wishlistItem = session('wishlist', []);
         $totalPrice = 0;
+        $discount_rate = 0;
         foreach($wishlistItem as $item){
+            $discount_rate = $item["discount_rate"];
             $unit_price = $item["price"] * $item["qty"];
             $totalPrice += $unit_price;
+            $oldTotalPrice = $totalPrice;
         }
-        return view('frontend.pages.checkout', compact('totalPrice'));
+        if ($discount_rate > 0){
+            $totalPrice = $totalPrice - (($totalPrice/100) * $discount_rate);
+        }
+        return view('frontend.pages.checkout', compact('totalPrice','oldTotalPrice','discount_rate'));
     }
 
     public function add(Request $request) {

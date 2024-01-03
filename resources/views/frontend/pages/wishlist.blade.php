@@ -78,7 +78,11 @@
                         </table>
                         <div class="container">
                             <div class="d-flex" style="width: 100%;display: flex;justify-content: space-between;margin-top: 20px;">
-                                <h3>{{$langData["total"]}} : {{$totalPrice}} €</h3>
+                                @if ($discount_rate == 0)
+                                    <h3>{{$langData["total"]}} : {{$totalPrice}} €</h3>
+                                @elseif ($discount_rate != 0)
+                                    <h3>{{$langData["total"]}} : {{$totalPrice}} € <span style="font-weight: 800; font-size:20px; color:red;">(%{{$discount_rate}} {{$langData["discount_area"]}})</span></h3>
+                                @endif
                                 <a href="{{route("checkout")}}">{{$langData["submit"]}}</a>
                             </div>
                         </div>

@@ -14,8 +14,10 @@ class PagesController extends Controller
      */
     public function index()
     {
+        $noRemoved = [1,2,3,4,5,6,7,8];
+
         $pages = Pages::all();
-        return view('backend.pages.pages.index', compact('pages'));
+        return view('backend.pages.pages.index', compact('pages','noRemoved'));
     }
 
     /**
@@ -34,7 +36,7 @@ class PagesController extends Controller
     {
         if($request->hasFile("banner_img")){
             $resim = $request->file('banner_img');
-            $dosyaAdi = time().'-'.Str::slug($request->p_name).".".$resim->getClientOriginalExtension();
+            $dosyaAdi = time().'-'.Str::slug($request->name_fr).".".$resim->getClientOriginalExtension();
             $resim->move(public_path('upload/pages'), $dosyaAdi);
             $dosya["banner_img"] = 'upload/pages/'.$dosyaAdi;
         }

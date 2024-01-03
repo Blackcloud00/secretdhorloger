@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\PagesController;
 use App\Http\Controllers\Backend\OrdersController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\CampaignsController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CategoriesController;
 use App\Http\Controllers\Backend\SiteSettingController;
@@ -68,4 +69,11 @@ Route::group(['middleware'=>['panelsetting','auth'], 'prefix'=>'panel', 'as' => 
     Route::post('/order/store', [OrdersController::class, 'store'])->name('order.store');
     Route::put('/order/{id}/update', [OrdersController::class, 'update'])->name('order.update');
     Route::delete('/order/{id}/destroy', [OrdersController::class, 'destroy'])->name('order.destroy');
+
+    Route::get('/campaigns', [CampaignsController::class, 'index'])->name('campaigns.index');
+    Route::get('/campaigns/add', [CampaignsController::class, 'create'])->name('campaigns.create');
+    Route::get('/campaigns/{id}/edit', [CampaignsController::class, 'edit'])->name('campaigns.edit');
+    Route::post('/campaigns/store', [CampaignsController::class, 'store'])->name('campaigns.store');
+    Route::put('/campaigns/{id}/update', [CampaignsController::class, 'update'])->name('campaigns.update');
+    Route::delete('/campaigns/{id}/destroy', [CampaignsController::class, 'destroy'])->name('campaigns.destroy');
 });

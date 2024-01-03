@@ -92,5 +92,8 @@ return [
 
     "wp_share" => "Bonjour, vous devriez consulter ce produit :",
     "fait_main" => "Fait Main",
+    "discount" => "Des réductions intéressantes ici",
+    "discount_area" => "C'est le prix réduit !"
+
 ];
 ?>

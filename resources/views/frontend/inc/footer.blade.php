@@ -28,7 +28,6 @@
                                         <ul class="align-items-center">
                                             <li class="li"><a class="single-link" href="{{route("homepage")}}">{{$langData["homepage"]}}</a></li>
                                             <li class="li"><a class="single-link" href={{route("about")}}">{{$langData["about_us"]}}</a></li>
-                                            <li class="li"><a class="single-link" href="{{route('products')}}">{{$langData["products"]}}</a></li>
                                             <li class="li"><a class="single-link" href="{{route('contact')}}">{{$langData["contact"]}}</a></li>
                                         </ul>
                                     </div>

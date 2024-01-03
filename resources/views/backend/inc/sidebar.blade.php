@@ -23,6 +23,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{route("panel.campaigns.index")}}" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+                Page d'accueil links
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{route("panel.categorie.index")}}" class="nav-link">
               <i class="nav-icon fas fa-bars"></i>
               <p>

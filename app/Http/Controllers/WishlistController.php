@@ -11,17 +11,27 @@ class WishlistController extends Controller
     public function index() {
         $wishlistItem = session('wishlist', []);
         $totalPrice = 0;
+        $discount_rate = 0;
+        $discount_status = 0;
+        $oldTotalPrice = 0;
         foreach($wishlistItem as $item){
+            $discount_rate = $item["discount_rate"];
+            $discount_status = $item["discount_status"] ?? 1;
             $unit_price = $item["price"] * $item["qty"];
             $totalPrice += $unit_price;
+            $oldTotalPrice = $totalPrice;
         }
-        return view('frontend.pages.wishlist',compact('wishlistItem', 'totalPrice'));
+        if ($discount_rate > 0 && $discount_status==1){
+            $totalPrice = $totalPrice - (($totalPrice/100) * $discount_rate);
+        }
+        return view('frontend.pages.wishlist',compact('wishlistItem', 'totalPrice', 'discount_rate','oldTotalPrice'));
     }
     public function add(Request $request) {
         $msgTxt = "bsk_001";
         $productID= $request->product_id;
         $qty= $request->product_qty;
         $product = products::find($productID);
+
         if(!$product){
             $msgTxt = "bsk_002";
             return back()->withError($msgTxt);
@@ -44,6 +54,7 @@ class WishlistController extends Controller
         }else{
             $wishlistItem[$productID]=[
                 'image'=> $product->img_1,
+                'discount_rate'=> $request->discount_rate ?? 0,
                 'price'=> $product->price,
                 'qty' => $qty,
                 'name' => $product->name,
